@@ -1,2 +1,2 @@
 #!/bin/bash
-python $PYCDOE
+echo $PYCODE | python
