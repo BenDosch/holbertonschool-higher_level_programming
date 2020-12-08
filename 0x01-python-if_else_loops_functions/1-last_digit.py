@@ -6,7 +6,7 @@ print('Last digit of {} is'.format(number), end=' ')
 if number < 0 and last != 0:
     print('-', end='')
 print('{}'.format(last), end=' ')
-if  last == 0:
+if last == 0:
     print('and is 0')
 elif number < 0:
     print('and is less than 6 and not 0')
