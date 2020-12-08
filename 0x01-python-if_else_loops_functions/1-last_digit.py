@@ -2,10 +2,10 @@
 import random
 number = random.randint(-10000, 10000)
 last = number % 10
-print('Last digit of ' + str(number) + ' is', end=' ')
+print('Last digit of {} is'.format(number), end=' ')
 if number < 0 and last != 0:
     print('-', end='')
-print(str(last), end=' ')
+print('{}'.format(last), end=' ')
 if  last == 0:
     print('and is 0')
 elif number < 0:
