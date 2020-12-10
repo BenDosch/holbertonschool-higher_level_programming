@@ -11,13 +11,13 @@ def main():
     b = int(argv[3])
     opp = argv[2]
     if opp == "+":
-        print(add(a, b))
+        print("{} {} {} = {}".format(a, opp, b, add(a, b)))
     elif opp == "-":
-        print(sub(a, b))
+        print("{} {} {} = {}".format(a, opp, b, sub(a, b)))
     elif opp == "*":
-        print(mul(a, b))
+        print("{} {} {} = {}".format(a, opp, b, mul(a, b)))
     elif opp == "/":
-        print(div(a, b))
+        print("{} {} {} = {}".format(a, opp, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
