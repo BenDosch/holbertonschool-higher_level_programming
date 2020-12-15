@@ -3,8 +3,9 @@ def replace_in_list(my_list, idx, element):
     copy_list = []
     for i in range(len(my_list)):
         copy_list.append(my_list[i])
-    if idx < len(my_list) and idx >= 0:
-        copy_list[idx] = element
+    if my_list:
+        if idx < len(my_list) and idx >= 0:
+            copy_list[idx] = element
     return (copy_list)
 
 
