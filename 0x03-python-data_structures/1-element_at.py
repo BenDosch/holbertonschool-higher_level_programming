@@ -8,7 +8,7 @@ def element_at(my_list, idx):
 def main():
     test_list = [1, 2, 3, 4, 5]
     idx = 3
-    print("Element at index {:d} is {}".format(idx, element_at(test_list, idx)))
+    print("Num at index {:d} is {}".format(idx, element_at(test_list, idx)))
 
 
 if __name__ == "__main__":
