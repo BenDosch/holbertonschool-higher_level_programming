@@ -1,5 +1,5 @@
-#0x03-python-data_structures
+#holbertonschool-higher_level_programming
 
 ##Intro
 
-A Directory containing Holberton projects on lists and tulples
+Repo for holberton school projects utilizing higher level lenguages`
