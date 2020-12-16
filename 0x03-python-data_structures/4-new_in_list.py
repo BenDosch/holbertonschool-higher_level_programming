@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-def replace_in_list(my_list, idx, element):
-    other_list = [x for x in my_list]
-    if idx < 0 or idx >= len(my_list):
-        return other_list
-    else:
-        other_list[idx] = element
-        return other_list
+def new_in_list(my_list, idx, element):
+    copy_list = []
+    if my_list:
+        for i in range(len(my_list)):
+            copy_list.append(my_list[i])
+    if idx < len(my_list) and idx >= 0:
+        copy_list[idx] = element
+    return (copy_list)
