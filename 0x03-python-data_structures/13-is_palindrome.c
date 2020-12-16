@@ -31,7 +31,7 @@ int is_palindrome(listint_t **head)
 
 	len = list_len(start);
 
-	if (len == 0 || len == 1)
+	if (len == 0 || len == 1 || !head || !start)
 		return (1);
 	printf("before first loop\n");
 	for (i = 0; i < (len / 2); i++, start = start->next)
