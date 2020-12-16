@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 def replace_in_list(my_list, idx, element):
-    copy_list = my_list[:]
-#    for i in range(len(my_list)):
-#        copy_list.append(my_list[i])
+    copy_list = my_list.copy()
     if idx < len(my_list) and idx >= 0:
         copy_list[idx] = element
-    return (copy_list)
+    return copy_list
 
 
 def main():
