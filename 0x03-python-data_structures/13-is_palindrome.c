@@ -37,8 +37,8 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < (len / 2); i++, start = start->next)
 	{
 		printf("before second loop\n");
-		end = *head;
-		for (j = 0; j < (len - (i) - 1); j++)
+		end = start;
+		for (j = 0; j < (len - (2 * i) - 1); j++)
 		{
 			printf("end: %d\n", end->n);
 			end = end->next;
