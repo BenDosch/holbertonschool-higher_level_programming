@@ -1,11 +1,18 @@
 #!/usr/bin/python3
 def simple_delete(a_dictionary, key=""):
+    if key in a_dictionary:
+        a_dictionary.pop(key)
+    return(a_dictionary)
 
+
+def print_sorted_dictionary(a_dictionary):
+    keys = list(a_dictionary.keys())
+    keys.sort()
+    [print("{}: {}".format(key, a_dictionary[key])) for key in keys]
 
 
 def main():
-    from 6-print_sorted_dictionary import print_sorted_dictionary
-    a_dict = { 'language': "C", 'Number': 89, 'track': "Low", 'ids': [1, 2, 3] }
+    a_dict = {'language': "C", 'Number': 89, 'track': "Low", 'ids': [1, 2, 3]}
     new_dict = simple_delete(a_dict, 'track')
     print_sorted_dictionary(a_dict)
     print("--")
