@@ -2,6 +2,11 @@
 def square_matrix_simple(matrix=[]):
     squares = [[x*x for x in row] for row in matrix]
     return squares
+""" The lambda version
+    square= []
+    for i in range(len(matrix)):
+        squares[i] = list(map(lambda x: x * x, row[i]))
+    return squares"""
 
 
 def main():
