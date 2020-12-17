@@ -1,6 +1,13 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-
+    best = (None, 0)
+    if a_dictionary:
+        t_list = list(a_dictionary.items())
+        for i in range(len(t_list)):
+            if best[1] < t_list[i][1]:
+                best = t_list[i]
+        return best[0]
+    return None
 
 
 def main():
