@@ -37,6 +37,10 @@ class Square:
     @size.setter
     def size(self, value):
         """Setter method for size
+
+        Args:
+            value (int): size of the square
+
         """
         if type(value) != int:
             raise TypeError("size must be an integer")
@@ -54,6 +58,11 @@ class Square:
     @position.setter
     def position(self, value):
         """Setter method for position
+
+        Args:
+            value (tuple): contains 2 ints greater than 0 that set space above
+        and next to the square
+
         """
         if type(vaule) != tuple or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -71,7 +80,7 @@ class Square:
 
     def my_print(self):
         """Method that prints a square of #'s the size of the square
-        precded by space or _'s according to position
+        precded by newlines or " "s according to position
         """
         if self.__size == 0:
             print("")
@@ -80,7 +89,7 @@ class Square:
             print("")
         for i in range(self.__size):
             for j in range(self.__position[0]):
-                print("_", end='')
+                print(" ", end='')
             for k in range(self.__size):
                 print("#", end='')
             print("")
