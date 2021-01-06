@@ -2,6 +2,7 @@
 """ This module contains an empty class
 """
 
+
 class Square:
     """An empy class"""
     pass
