@@ -3,7 +3,6 @@
 """
 
 
-
 class Square:
     """A class with information about a square
     """
