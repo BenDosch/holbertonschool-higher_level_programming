@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""Module contains a class Square
+"""
+
+
+
 class Square:
     """A class with information about a square
     """
