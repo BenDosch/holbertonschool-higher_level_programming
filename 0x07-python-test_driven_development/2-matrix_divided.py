@@ -34,8 +34,7 @@ def matrix_divided(matrix, div):
             if not isinstance(matrix[row][cell], (int, float)):
                 raise TypeError(te_1)
 
-    new_mtx = [
-        [
+    new_mtx = [[
         (round((matrix[row][cell] / div), 2))
         for cell in range(len(matrix[row]))
         ]
