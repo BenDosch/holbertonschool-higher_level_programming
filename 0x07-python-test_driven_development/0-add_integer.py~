@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+"""Moduel containing a single function that adds 2 ints
+"""
+
+
+def add_integer(a, b=98):
+    """A function that adds 2 ints a & b
+
+    Args:
+        a (int or float): firts number, converted to int in function
+        b (int or float): second number, converted to int in function
+
+    """
+    if type(a) is float:
+        a = int(a)
+    if type(b) is float:
+        b = int(b)
+    if type(a) is not int and type(a) is not float:
+        raise TypeError("a must be an integer")
+    if type(b) is not int and type(b) is not float:
+        raise TypeError("b must be an integer")
+    return a + b
