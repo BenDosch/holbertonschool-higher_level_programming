@@ -30,7 +30,7 @@ Now use it:
 
     #0
     >>> print_square(0)
-    <BLANKLINE>
+
 
     #1
     >>> print_square(1)
