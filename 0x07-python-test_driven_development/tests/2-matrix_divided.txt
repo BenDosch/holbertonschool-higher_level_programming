@@ -1,0 +1,115 @@
+The ``2-matrix_divided`` module
+===============================
+
+Using ``matrix_divided``
+-------------------
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Now use it:
+
+    >>> matrix = [
+    ... [1, 2, 3],
+    ... [4, 5, 6]
+    ... ]
+
+    #div positive int
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    #checks to see that old matrix is unaffected
+    >>> print(matrix)
+    [[1, 2, 3], [4, 5, 6]]
+
+    #div negative int
+    >>> print(matrix_divided(matrix, -3))
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+    #div positive float
+    >>> print(matrix_divided(matrix, 1.5))
+    [[0.67, 1.33, 2.0], [2.67, 3.33, 4.0]]
+
+    #div negative float
+    >>> print(matrix_divided(matrix, -1.5))
+    [[-0.67, -1.33, -2.0], [-2.67, -3.33, -4.0]]
+
+    #div 0
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+    #div str
+    >>> print(matrix_divided(matrix, "Hello"))
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    #multipule div
+    >>> print(matrix_divided(matrix, 3, 5))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+    #order swaped
+    >>> print(matrix_divided(3, matrix))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    #none for matrix
+    >>> print(matrix_divided(None, 5))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    #no div
+    >>> print(matrix_divided(matrix))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    #no matrix
+    >>> print(matrix_divided(6, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    #matrix of floats
+    >>> matrix = [
+    ... [1.4, 2.5, 3.6],
+    ... [4.7, 5.8, 6.9]
+    ... ]
+
+    >>> print(matrix_divided(matrix, 3))
+    [[0.47, 0.83, 1.2], [1.57, 1.93, 2.3]]
+
+    #matrix of str
+    >>> matrix = [
+    ... ["Can", "you", "hear"],
+    ... ["me", "now?", "Good!",]
+    ... ]
+
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    #matrix of diffent row size
+    >>> matrix = [
+    ... [1, 2, 3, 4],
+    ... [5, 6, 7, 8],
+    ... [9, 0]
+    ... ]
+
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    #matrix of 1 row
+    >>> matrix = [3, 6, 9]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
