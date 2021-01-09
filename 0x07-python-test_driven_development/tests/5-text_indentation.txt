@@ -12,6 +12,12 @@ Now use it:
     >>> text_indentation("Simple string")
     Simple string
 
+    #white space everywhere
+    >>> text_indentation("    Simple:     string      ")
+    Simple:
+    <BLANKLINE>
+    string
+
     #int
     >>> text_indentation(12)
     Traceback (most recent call last):
@@ -22,11 +28,11 @@ Now use it:
     >>> text_indentation("Test1. Test2? Test3: No.Gaps?Between:")
     Test1.
     <BLANKLINE>
-     Test2?
+    Test2?
     <BLANKLINE>
-     Test3:
+    Test3:
     <BLANKLINE>
-     No.
+    No.
     <BLANKLINE>
     Gaps?
     <BLANKLINE>
