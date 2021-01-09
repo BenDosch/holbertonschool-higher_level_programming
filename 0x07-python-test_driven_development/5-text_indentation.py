@@ -15,15 +15,15 @@ def text_indentation(text):
     if type(text) is not str:
         raise TypeError("text must be a string")
 
-    text = text.strip()
+    text2 = text.strip()
     char = 0
 
-    while char < (len(text)):
-        if text[char] in ['.', '?', ':']:
-            print("{}\n".format(text[char]))
-            while char < len(text) - 1 and text[char + 1] == " ":
+    while char < (len(text2)):
+        if text2[char] in ['.', '?', ':']:
+            print("{}\n".format(text2[char]))
+            while char < len(text2) - 1 and text2[char + 1] == " ":
                 char += 1
             char += 1
         else:
-            print(text[char], end='')
+            print(text2[char], end='')
             char += 1
