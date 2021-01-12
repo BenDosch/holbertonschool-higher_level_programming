@@ -24,8 +24,8 @@ class Rectangle():
         if self.perimeter() == 0:
             return ""
         else:
-           return ((("#" * self.width + "\n") * (self.height - 1))
-            + ("#" * self.width))
+            return ((("#" * self.width + "\n") * (self.height - 1)) +
+                    ("#" * self.width))
 
     @property
     def width(self):
