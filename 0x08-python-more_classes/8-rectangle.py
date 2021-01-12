@@ -9,10 +9,12 @@ class Rectangle():
     Atributes:
         number_of_instances (int): tracks the number of
                                    instances of the Rectangle class
+        print_symbol (any): symbol used to create a visual of Rectangle
 
     """
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initilization method for Rectangle.
@@ -28,17 +30,18 @@ class Rectangle():
         Rectangle.number_of_instances += 1
 
     def __str__(self):
-        """Method that returns readable form of Rectangle as #'s"""
+        """Method that returns readable form of Rectangle made of symbols"""
 
         if self.perimeter() == 0:
             return ""
         else:
-            return ((("#" * self.width + "\n") * (self.height - 1))
-                    + ("#" * self.width))
+            return (((("{}".format(self.print_symbol)) * self.width
+                       + "\n") * (self.height)
+                     + ("{}".format(self.print_symbol) * self.width)))
 
     def __repr__(self):
-        """Method that returns a string representation of the Rectangle to be able to
-        recreate a new instance"""
+        """Method that returns a string representation of the Rectangle
+            to be able to recreate a new instance"""
 
         return 'Rectangle(%s, %s)' % (self.width, self.height)
 
@@ -103,12 +106,32 @@ class Rectangle():
         else:
             return (2 * (self.width + self.height))
 
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Compares 2 Rectangle objects and returns
+        the one with the biger area"""
+
+        if type(rect_1) is not Rectangle:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if type(rect_2) is not Rectangle:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_2.area() > rect_1.area():
+            return rect_2
+        else:
+            return rect_1
 
 if __name__ == "__main__":
-    my_rectangle_1 = Rectangle(2, 4)
-    my_rectangle_2 = Rectangle(2, 4)
-    print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
-    del my_rectangle_1
-    print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
-    del my_rectangle_2
-    print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
+    my_rectangle_1 = Rectangle(8, 4)
+    my_rectangle_2 = Rectangle(2, 3)
+
+    if my_rectangle_1 is Rectangle.bigger_or_equal(my_rectangle_1, my_rectangle_2):
+        print("my_rectangle_1 is bigger or equal to my_rectangle_2")
+    else:
+        print("my_rectangle_2 is bigger than my_rectangle_1")
+
+    my_rectangle_2.width = 10
+    my_rectangle_2.height = 5
+    if my_rectangle_1 is Rectangle.bigger_or_equal(my_rectangle_1, my_rectangle_2):
+        print("my_rectangle_1 is bigger or equal to my_rectangle_2")
+    else:
+        print("my_rectangle_2 is bigger than my_rectangle_1")
