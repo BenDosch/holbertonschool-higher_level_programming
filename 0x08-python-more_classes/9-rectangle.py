@@ -35,9 +35,9 @@ class Rectangle():
         if self.perimeter() == 0:
             return ""
         else:
-            return (((("{}".format(self.print_symbol)) * self.width
-                       + "\n") * (self.height)
-                     + ("{}".format(self.print_symbol) * self.width)))
+            return (((("{}".format(self.print_symbol)) * self.width + "\n") *
+                    (self.height) + ("{}".format(self.print_symbol) *
+                    self.width)))
 
     def __repr__(self):
         """Method that returns a string representation of the Rectangle
@@ -128,5 +128,6 @@ class Rectangle():
 
 if __name__ == "__main__":
     my_square = Rectangle.square(5)
-    print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
+    print("Area: {} - Perimeter: {}".format(my_square.area(),
+                                            my_square.perimeter()))
     print(my_square)
