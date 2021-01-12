@@ -24,8 +24,8 @@ class Rectangle():
         if self.perimeter() == 0:
             return ""
         else:
-            return ((("#" * self.width + "\n") * (self.height - 1))
-                    + ("#" * self.width)) 
+            return ((("#" * self.width + "\n") * (self.height - 1)) +
+                    ("#" * self.width))
 
     def __repr__(self):
         """returns a string representation of the Rectangle to be able to
