@@ -36,7 +36,7 @@ class Rectangle():
             return ""
         else:
             return (((("{}".format(self.print_symbol)) * self.width + "\n") *
-                    (self.height) + ("{}".format(self.print_symbol) *
+                     (self.height - 1) + ("{}".format(self.print_symbol) *
                     self.width)))
 
     def __repr__(self):
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     my_rectangle_2 = Rectangle(2, 1)
     print(my_rectangle_2)
     print("--")
-    Rectangle.print_symbol = "B"
+    Rectangle.print_symbol = "C"
     print(my_rectangle_2)
     print("--")
 
