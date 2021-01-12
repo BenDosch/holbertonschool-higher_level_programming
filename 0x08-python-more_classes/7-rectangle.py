@@ -35,9 +35,9 @@ class Rectangle():
         if self.perimeter() == 0:
             return ""
         else:
-            return (((("{}".format(self.print_symbol)) * self.width
-                       + "\n") * (self.height)
-                     + ("{}".format(self.print_symbol) * self.width)))
+            return (((("{}".format(self.print_symbol)) * self.width + "\n") *
+                    (self.height) + ("{}".format(self.print_symbol) *
+                    self.width)))
 
     def __repr__(self):
         """Method that returns a string representation of the Rectangle
