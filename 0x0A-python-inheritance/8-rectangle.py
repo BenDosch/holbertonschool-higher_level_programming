@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Module that contains the class rectangle, a subclass of BaseGeometry"""
 
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
     """Subclass of BaseGeometry that describes a rectangle"""
