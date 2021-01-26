@@ -2,6 +2,7 @@
 """Moduel containing unit tests for the Rectangle class"""
 
 import unittest
+import json
 from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
@@ -13,17 +14,10 @@ class TestRectangle(unittest.TestCase):
     def setUpClass(cls):
         """Funcion executes before the testing begins"""
         cls.r1 = Rectangle(10, 2)
-        print(cls.r1.__dict__)
-        print("--")
         cls.r2 = Rectangle(2, 10)
-        print(cls.r2.__str__)
-        print("--")
         cls.r3 = Rectangle(15, 10, 5)
-        print()
-        print("--")
-        cls.r4 = Rectangle(10, 2, 3, 5, 12)
-        print(cls.r4)
-        print("--")
+        cls.r4 = Rectangle(6, 8, 2, 4)
+        cls.r5 = Rectangle(10, 2, 3, 5, 12)
 
     @classmethod
     def tearDownClass(cls):
@@ -31,56 +25,170 @@ class TestRectangle(unittest.TestCase):
         del cls.r1
         del cls.r2
         del cls.r3
+        del cls.r4
+        del cls.r5
 
     # Method tests
 
     # Magic method tests
 
-    def test_init(self):
-        # Tests for the __init__ method of Rectangle
+    def test_values(self):
+        # Tests for the init, getter, setter, dict, and str methods of Rectangle
         self.assertEqual(self.r1.__dict__, {'_Rectangle__width': 10,
                         '_Rectangle__height': 2, 'id': 1, '_Rectangle__x': 0,
                         '_Rectangle__y': 0})
+        self.assertEqual(Rectangle.to_dictionary(self.r1),
+                        {'height': 2, 'width': 10, 'id': 1, 'y': 0, 'x': 0})
+        self.assertEqual(self.r1.id, 1)
+        self.assertEqual(self.r1.width, 10)
+        self.assertEqual(self.r1.height, 2)
+        self.assertEqual(self.r1.x, 0)
+        self.assertEqual(self.r1.y, 0)
+        self.assertEqual(Rectangle.to_dictionary(self.r2),
+                         {'y': 0, 'id': 2, 'height': 10, 'width': 2, 'x': 0})
         self.assertEqual(Rectangle.__str__(self.r2),
                          "[Rectangle] (2) 0/0 - 2/10")
-        #self.assertEqual(self.r3.__str__, "[Rectangle] (3) 5/0 - 10/15")
-        #self.assertEqual(self.r4.__str__, "[Rectangle] (10) 3/5 - 10/2")
-        #self.assertEqual(self.r1._Base__nb_objects, 3)
+        self.assertEqual(self.r2.id, 2)
+        self.assertEqual(self.r2.width, 2)
+        self.assertEqual(self.r2.height, 10)
+        self.assertEqual(self.r2.x, 0)
+        self.assertEqual(self.r2.y, 0)
+        self.assertEqual(Rectangle.to_dictionary(self.r3),
+                         {'y': 0, 'id': 3, 'height': 10, 'width': 15, 'x': 5})
+        self.assertEqual(Rectangle.__str__(self.r3),
+                         "[Rectangle] (3) 5/0 - 15/10")
+        self.assertEqual(self.r3.id, 3)
+        self.assertEqual(self.r3.width, 15)
+        self.assertEqual(self.r3.height, 10)
+        self.assertEqual(self.r3.x, 5)
+        self.assertEqual(self.r3.y, 0)
+        self.assertEqual(Rectangle.to_dictionary(self.r4),
+                         {'y': 4, 'id': 4, 'height': 8, 'width': 6, 'x': 2})
+        self.assertEqual(Rectangle.__str__(self.r4),
+                         "[Rectangle] (4) 2/4 - 6/8")
+        self.assertEqual(self.r4.id, 4)
+        self.assertEqual(self.r4.width, 6)
+        self.assertEqual(self.r4.height, 8)
+        self.assertEqual(self.r4.x, 2)
+        self.assertEqual(self.r4.y, 4)
+        self.assertEqual(Rectangle.to_dictionary(self.r5),
+                         {'y': 5, 'id': 12, 'height': 2, 'width': 10, 'x': 3})
+        self.assertEqual(Rectangle.__str__(self.r5),
+                         "[Rectangle] (12) 3/5 - 10/2")
+        self.assertEqual(self.r5.id, 12)
+        self.assertEqual(self.r5.width, 10)
+        self.assertEqual(self.r5.height, 2)
+        self.assertEqual(self.r5.x, 3)
+        self.assertEqual(self.r5.y, 5)
+        self.assertEqual(self.r1._Base__nb_objects, 4)
 
-    """# Static method tests
+    #Test for exceptions
+
+    def test_exceptions(self):
+        """Function that runs tests for execptions that should occur
+        when using the Rectangle class"""
+
+        assertRaises(TypeError, Rectangle("Cool", 1),
+                     "width must be an integer")
+        assertRaises(TypeError, Rectangle(2.5, 1), "width must be an integer")
+        assertRaises(TypeError, Rectangle(True, 1), "width must be an integer")
+        assertRaises(TypeError, Rectangle(7j, 1), "width must be an integer")
+        assertRaises(TypeError, Rectangle([4], 1), "width must be an integer")
+        assertRaises(TypeError, Rectangle((2, 7), 1),
+                     "width must be an integer")
+        assertRaises(TypeError, Rectangle({"hat": 4}, 1),
+                     "width must be an integer")
+        assertRaises(TypeError, Rectangle(2, 6.5), "height must be an integer")
+        assertRaises(TypeError, Rectangle(2, False),
+                     "height must be an integer")
+        assertRaises(TypeError, Rectangle(2, 6j),
+                     "height must be an integer")
+        assertRaises(TypeError, Rectangle(2, [4, 1]),
+                     "height must be an integer")
+        assertRaises(TypeError, Rectangle(2, {"Milk": 1}),
+                     "height must be an integer")
+        assertRaises(TypeError, Rectangle(2, (3, 9)),
+                     "height must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3.5, 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, True, 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3j, 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, "3", 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, [3], 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, {"My": 3}, 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, (3, 3), 4),
+                     "x must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, 4.2),
+                     "y must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, False),
+                     "y must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, 4j),
+                     "y must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, "4"),
+                     "y must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, [4]),
+                     "y must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, {"its": 4}),
+                     "y must be an integer")
+        assertRaises(TypeError, Rectangle(1, 2, 3, (4, 4)),
+                     "y must be an integer")
+        assertRaises(ValueError, Rectangle(0, 9), "width must be > 0")
+        assertRaises(ValueError, Rectangle(-4, 9), "width must be > 0")
+        assertRaises(ValueError, Rectangle(3, 0), "height must be > 0")
+        assertRaises(ValueError, Rectangle(3, -2), "height must be > 0")
+        assertRaises(ValueError, Rectangle(1, 1, -8, 9), "x must be >= 0")
+        assertRaises(ValueError, Rectangle(1, 1, 8, -9), "y must be >= 0")
+
+    # Static & class method tests
 
     def test_to_json_string(self):
-        # Tests of the to_json_string method of Base
-        list_input = [{'id': 789}, {'id': 6}, {'id': None}, {'id': -16}]
+        # Tests of the to_json_string method of Rectangle
+        list_input = [{'x': 0, 'height': 2, 'width': 10, 'id': 1, 'y': 0},
+                      {'x': 0, 'height': 10, 'width': 2, 'id': 2, 'y': 0},
+                      {'x': 5, 'height': 10, 'width': 15, 'id': 3, 'y': 0},
+                      {'x': 2, 'height': 8, 'width': 6, 'id': None, 'y': 4},
+                      {'x': 3, 'height': 2, 'width': 10, 'id': 12, 'y': 5}]
         self.assertEqual(Rectangle.to_json_string(list_input),
-                         '[{"id": 789}, {"id": 6}, {"id": null}, {"id": -16}]')
+                         json.dumps(list_input))
+        self.assertEqual(Rectangle.to_json_string([]), "[]")
+        self.assertEqual(Rectangle.to_json_string(None), "[]")
 
     def test_from_json_string(self):
-        # Tests of the from_json_string method of Base
-        str_input = '[{"id": 789}, {"id": 6}, {"id": null}, {"id": -16}]'
-        self.assertEqual(Rectangle.from_json_string(str_input),
-                         [{'id': 789}, {'id': 6}, {'id': None}, {'id': -16}])
+        # Tests of the from_json_string method of rectangle
+        str_input = '[{"x": 0, "height": 2, "width": 10, "id": 1, "y": 0}, \
+        {"x": 0, "height": 10, "width": 2, "id": 2, "y": 0}, \
+        {"x": 5, "height": 10, "width": 15, "id": 3, "y": 0}, \
+        {"x": 2, "height": 8, "width": 6, "id": null, "y": 4}, \
+        {"x": 3, "height": 2, "width": 10, "id": 12, "y": 5}]'
+        dict_list = Rectangle.from_json_string(str_input)
+        self.assertDictEqual(dict_list[0],
+                        {'x': 0, 'height': 2, 'width': 10, 'id': 1, 'y': 0},)
+        self.assertDictEqual(dict_list[1],
+                        {'x': 0, 'height': 10, 'width': 2, 'id': 2, 'y': 0})
+        self.assertDictEqual(dict_list[2],
+                        {'x': 5, 'height': 10, 'width': 15, 'id': 3, 'y': 0})
+        self.assertDictEqual(dict_list[3],
+                        {'x': 2, 'height': 8, 'width': 6, 'id': None, 'y': 4})
+        self.assertDictEqual(dict_list[4],
+                        {'x': 3, 'height': 2, 'width': 10, 'id': 12, 'y': 5})
+        self.assertEqual(Rectangle.from_json_string(''), [])
+        self.assertEqual(Rectangle.from_json_string(None), [])
 
-    #Class methods
-
-    def test_save_to_file(self):
-        # Tests for the save_to_file method of Base
+    def test_file(self):
+        # Tests for the save_to_file method of Rectangle
         pass
 
     def test_create(self):
         # Tests for the create method of Base
-        self.dict_1 =
-        self.dict_2 =
-        print(self.dict_1)
-        print(type(self.dict_1))
-        print(self.dict_2)
-        print(type(self.dict_1))
-        self.r# = Rectangle.create(**self.dict_1)
-        self.r# = Rectangle.create(**self.dict_2)
-        self.assertEqual(self.  .__dict__, dict_1)
-        self.assertEqual(self.  .__dict__, dict_2)
-        self.assertEqual(Base.__nb_objects, #)
-
-    def test_load_from_file(self):
-        # Tests for the laod_from_file method of Base
-        pass """
+        self.dict_1 = self.r1.__dict__
+        self.dict_2 = self.r5.__dict__
+        self.r6 = Rectangle.create(**self.dict_1)
+        self.r7 = Rectangle.create(**self.dict_2)
+        self.assertEqual(self.r6.__dict__, dict_1)
+        self.assertEqual(self.r7.__dict__, dict_2)
+        self.assertEqual(Rectangle.__nb_objects, 4)
