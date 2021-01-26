@@ -37,7 +37,6 @@ class Base():
                                       If None or empty, returns "[]"
 
         """
-
         str = "[]"
         if list_dictionaries is not None and len(list_dictionaries) > 0:
             str = json.dumps(list_dictionaries)
@@ -45,9 +44,18 @@ class Base():
 
     @staticmethod
     def from_json_string(json_string):
-        """Returns a list created from a json string representation"""
+        """Static method tat returns a list created
+        from a json formated string
 
-        return json.loads(json_string)
+        Args:
+            json_string (string): String containing a list to be converted from
+                                  json format.
+
+        """
+        if json_string == None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
 
     # General Methods
 
@@ -74,9 +82,9 @@ class Base():
         """Returns and instance that inherited from Base
         with all the atributes already set"""
         if cls.__name__ == "Rectangle":
-            dummy = cls(0, 0)
+            dummy = cls(1, 1)
         elif cls.__name__ == "Square":
-            dummy = cls(0)
+            dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
 
@@ -88,3 +96,4 @@ class Base():
         with open(cls.__name__ + ".json", mode="r") as f:
             return [cls.create(**obj) for obj in
                     cls.from_json_string(f.read())]
+        return []

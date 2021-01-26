@@ -12,11 +12,11 @@ class Rectangle(Base):
 # Magic Methods
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initilization method for Rectangel.
+        """Initilization method for Rectangle.
 
         Args:
-            width (int): Width of rectangle. Must be >= 0.
-            height (int): Must be >= 0.
+            width (int): Width of rectangle. Must be > 0.
+            height (int): Must be > 0.
             x (int): Must be >= 0.
             y (int): Must be >= 0.
 
@@ -55,7 +55,7 @@ class Rectangle(Base):
 
         if type(value) is not int:
             raise TypeError("width must be an integer")
-        elif value < 0:
+        elif value <= 0:
             raise ValueError("width must be > 0")
         else:
             self.__width = value
@@ -77,7 +77,7 @@ class Rectangle(Base):
 
         if type(value) is not int:
             raise TypeError("height must be an integer")
-        elif value < 0:
+        elif value <= 0:
             raise ValueError("height must be > 0")
         else:
             self.__height = value
