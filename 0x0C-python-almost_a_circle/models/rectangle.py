@@ -138,9 +138,9 @@ class Rectangle(Base):
         """Prints the rectangle make out f #'s to stdout."""
 
         if self.width > 0 and self.height > 0:
-            [print("") for x in range(self.y)]
+            [print("") for i in range(self.y)]
             [print((' ' * self.x) + ('#' * self.width))
-             for x in range(self.height)]
+             for j in range(self.height)]
 
     def update(self, *args, **kwargs):
         """Method to update the attributes of a Rectangle object.
@@ -167,9 +167,8 @@ class Rectangle(Base):
                     self.x = args[3]
                 if arg == 4:
                     self.y = args[4]
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def to_dictionary(self):
         """Returns a dictionary representaion of the Rectangle"""
