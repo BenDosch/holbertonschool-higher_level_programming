@@ -19,7 +19,7 @@ class Base():
     def __init__(self, id=None):
         """Initilization of Base. Sets id to specified value if provided
         otherwise sets the id to the number of objects created"""
-        if not id:
+        if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
         else:
@@ -71,8 +71,12 @@ class Base():
 
     @classmethod
     def create(cls, **dictionary):
-        """Returns and instance with all the atributes already set"""
-        dummy = cls(0, 0)
+        """Returns and instance that inherited from Base
+        with all the atributes already set"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(0, 0)
+        elif cls.__name__ == "Square":
+            dummy = cls(0)
         dummy.update(**dictionary)
         return dummy
 
