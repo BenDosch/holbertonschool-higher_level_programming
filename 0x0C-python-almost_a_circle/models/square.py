@@ -19,7 +19,7 @@ class Square(Rectangle):
             id (int): Attribute of Base class identifying obejct.
 
         """
-            super().__init__(size, size, x, y, id)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Method that returns a string representation of the Square"""
