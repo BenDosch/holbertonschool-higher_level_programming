@@ -19,12 +19,6 @@ class Square(Rectangle):
             id (int): Attribute of Base class identifying obejct.
 
         """
-
-        if type(size) is not int:
-            raise TypeError("size must be an integer")
-        elif size <= 0:
-            raise ValueError("size must be > 0")
-        else:
             super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -45,13 +39,8 @@ class Square(Rectangle):
     def size(self, value):
         """Method that sets the size of the square"""
 
-        if type(value) is not int:
-            raise TypeError("size must be an integer")
-        elif value <= 0:
-            raise ValueError("size must be > 0")
-        else:
-            self.width = value
-            self.height = value
+        self.width = value
+        self.height = value
 
     # General methods
 
