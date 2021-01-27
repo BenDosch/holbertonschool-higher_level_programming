@@ -4,7 +4,7 @@
 
 import unittest
 from models.base import Base
-
+import pep8
 
 class TestBase(unittest.TestCase):
     """Tests all of the atributes and methods of the Base class"""
@@ -72,3 +72,10 @@ class TestBase(unittest.TestCase):
     def test_load_from_file(self):
         # Tests for the laod_from_file method of Base
         pass
+
+    def test_pep8_conformance(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
