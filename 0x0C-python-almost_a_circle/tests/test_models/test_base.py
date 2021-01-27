@@ -5,6 +5,7 @@
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     """Tests all of the atributes and methods of the Base class"""
 
@@ -62,7 +63,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.from_json_string(str_input),
                          [{'id': 789}, {'id': 6}, {'id': None}, {'id': -16}])
 
-    #Class methods
+    # Class methods
 
     def test_save_to_file(self):
         # Tests for the save_to_file method of Base

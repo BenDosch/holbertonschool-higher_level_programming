@@ -20,6 +20,10 @@ class Square(Rectangle):
 
         """
 
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size <= 0:
+            raise ValueError("size must be > 0")
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -40,6 +44,10 @@ class Square(Rectangle):
     def size(self, value):
         """Method that sets the size of the square"""
 
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value <= 0:
+            raise ValueError("size must be > 0")
         self.width = value
         self.height = value
 
@@ -79,4 +87,4 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Returns a dictionary representaion of the Square"""
 
-        return self.__dict__
+        return {'id': self.id, 'x': self.x, 'size': self.width, 'y': self.y}
