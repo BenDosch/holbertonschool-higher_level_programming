@@ -94,8 +94,9 @@ class Base():
     def load_from_file(cls):
         """returns a list of instances from a file.
         Returns an empty list no file"""
-
-        with open(cls.__name__ + ".json", mode="r") as f:
-            return [cls.create(**obj) for obj in
-                    cls.from_json_string(f.read())]
-        return []
+        try:
+            with open(cls.__name__ + ".json", mode="r") as f:
+                return [cls.create(**obj) for obj in
+                        cls.from_json_string(f.read())]
+        except FileNotFoundError:
+            return []
