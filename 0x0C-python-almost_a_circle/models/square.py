@@ -20,11 +20,12 @@ class Square(Rectangle):
 
         """
 
-        if not isinstance(size, int):
+        if type(size) is not int:
             raise TypeError("size must be an integer")
-        if size <= 0:
+        elif size <= 0:
             raise ValueError("size must be > 0")
-        super().__init__(size, size, x, y, id)
+        else:
+            super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Method that returns a string representation of the Square"""
@@ -44,12 +45,13 @@ class Square(Rectangle):
     def size(self, value):
         """Method that sets the size of the square"""
 
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        if value <= 0:
+        elif value <= 0:
             raise ValueError("size must be > 0")
-        self.width = value
-        self.height = value
+        else:
+            self.width = value
+            self.height = value
 
     # General methods
 
