@@ -92,68 +92,72 @@ class TestRectangle(unittest.TestCase):
         """Function that runs tests for execptions that should occur
         when using the Rectangle class"""
 
-        """self.assertRaises(TypeError, Rectangle("Cool", 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle(2.5, 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle(True, 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle(7j, 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle([4], 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle((2, 7), 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle({"hat": 4}, 1),
-                     "width must be an integer")
-        self.assertRaises(TypeError, Rectangle(2, 6.5),
-                     "height must be an integer")
-        self.assertRaises(TypeError, Rectangle(2, False),
-                     "height must be an integer")
-        self.assertRaises(TypeError, Rectangle(2, 6j),
-                     "height must be an integer")
-        self.assertRaises(TypeError, Rectangle(2, [4, 1]),
-                     "height must be an integer")
-        self.assertRaises(TypeError, Rectangle(2, {"Milk": 1}),
-                     "height must be an integer")
-        self.assertRaises(TypeError, Rectangle(2, (3, 9)),
-                     "height must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3.5, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, True, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3j, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, "3", 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, [3], 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, {"My": 3}, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, (3, 3), 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, 4.2),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, False),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, 4j),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, "4"),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, [4]),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, {"its": 4}),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Rectangle(1, 2, 3, (4, 4)),
-                     "y must be an integer")
-        self.assertRaises(ValueError, Rectangle(0, 9), "width must be > 0")
-        self.assertRaises(ValueError, Rectangle(-4, 9), "width must be > 0")
-        self.assertRaises(ValueError, Rectangle(3, 0), "height must be > 0")
-        self.assertRaises(ValueError, Rectangle(3, -2), "height must be > 0")
-        self.assertRaises(ValueError, Rectangle(1, 1, -8, 9), "x must be >= 0")
-        self.assertRaises(ValueError, Rectangle(1, 1, 8, -9), "y must be >= 0")
-        """
-        pass
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle("Cool", 1)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle(2.5, 1)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle(True, 1)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle(7j, 1)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle([4], 1)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle((2, 7), 1)
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle({"hat": 4}, 1)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, 6.5)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, False)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, 6j)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, [4, 1])
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, {"Milk": 1})
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, (3, 9))
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, 3.5, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, True, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, 3j, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, "3", 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, [3], 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, {"My": 3}, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, (3, 3), 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(1, 2, 3, 4.2)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(1, 2, 3, False)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(1, 2, 3, 4j)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(1, 2, 3, "4")
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(1, 2, 3, [4])
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(1, 2, 3, {"its": 4})
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(1, 2, 3, (4, 4))
+        with self.assertRaises(ValueError,  msg="width must be > 0"):
+            Rectangle(0, 9)
+        with self.assertRaises(ValueError,  msg="width must be > 0"):
+            Rectangle(-4, 9)
+        with self.assertRaises(ValueError,  msg="height must be > 0"):
+            Rectangle(3, 0)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            Rectangle(3, -2)
+        with self.assertRaises(ValueError, msg="x must be >= 0"):
+            Rectangle(1, 1, -8, 9)
+        with self.assertRaises(ValueError, msg="y must be >= 0"):
+            Rectangle(1, 1, 8, -9)
 
     # Static & class method tests
 

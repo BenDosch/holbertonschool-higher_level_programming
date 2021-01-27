@@ -88,51 +88,54 @@ class TestRectangle(unittest.TestCase):
         """Function that runs tests for execptions that should occur
         when using the Square class"""
 
-        """self.assertRaises(TypeError, Square(6.5), "size must be an integer")
-        self.assertRaises(TypeError, Square(False),
-                     "size must be an integer")
-        self.assertRaises(TypeError, Square(6j),
-                     "size must be an integer")
-        self.assertRaises(TypeError, Square([4, 1]),
-                     "size must be an integer")
-        self.assertRaises(TypeError, Square({"Milk": 1}),
-                     "size must be an integer")
-        self.assertRaises(TypeError, Square((3, 9)),
-                     "size must be an integer")
-        self.assertRaises(TypeError, Square(2, 3.5, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, True, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, 3j, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, "3", 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, [3], 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, {"My": 3}, 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, (3, 3), 4),
-                     "x must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, 4.2),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, False),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, 4j),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, "4"),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, [4]),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, {"its": 4}),
-                     "y must be an integer")
-        self.assertRaises(TypeError, Square(2, 3, (4, 4)),
-                     "y must be an integer")
-        self.assertRaises(ValueError, Square(0), "size must be > 0")
-        self.assertRaises(ValueError, Square(-2), "size must be > 0")
-        self.assertRaises(ValueError, Square(1, -8, 9), "x must be >= 0")
-        self.assertRaises(ValueError, Square(1, 8, -9), "y must be >= 0")
-        """
-        pass
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            Square(6.5)
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            Square(False)
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            Square(6j)
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            Square([4, 1])
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            Square({"Milk": 1})
+        with self.assertRaises(TypeError, msg="size must be an integer"):
+            Square((3, 9))
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, 3.5, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, True, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, 3j, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, "3", 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, [3], 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, {"My": 3}, 4)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Square(2, (3, 3), 4)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, 4.2)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, False)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, 4j)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, "4")
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, [4])
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, {"its": 4})
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Square(2, 3, (4, 4))
+        with self.assertRaises(ValueError, msg="size must be > 0"):
+            Square(0)
+        with self.assertRaises(ValueError, msg="size must be > 0"):
+            Square(-2)
+        with self.assertRaises(ValueError, msg="x must be >= 0"):
+            Square(1, -8, 9)
+        with self.assertRaises(ValueError, msg="y must be >= 0"):
+            Square(1, 8, -9)
 
     # Static & class method tests
 
