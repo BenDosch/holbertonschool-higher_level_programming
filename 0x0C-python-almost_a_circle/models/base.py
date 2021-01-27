@@ -71,11 +71,13 @@ class Base():
         """
 
         with open(cls.__name__ + ".json", mode="w") as f:
-
             new_list = []
-            for obj in list_objs:
-                new_list.append(obj.to_dictionary())
-            f.write(cls.to_json_string(new_list))
+            if list_objs is None:
+                f.write(new_list)
+            else:
+                for obj in list_objs:
+                    new_list.append(obj.to_dictionary())
+                f.write(cls.to_json_string(new_list))
 
     @classmethod
     def create(cls, **dictionary):
