@@ -1,5 +1,5 @@
-#0x0D-SQL_introduction
+# 0x0D-SQL_introduction
 
-##Intro
+## Intro
 
-Directory containing SQL projects for holberton.
+Repository that contains Holberton projects using MySQL
