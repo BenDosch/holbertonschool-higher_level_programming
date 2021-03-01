@@ -1,3 +1,9 @@
--- Script to
--- Querry to 
-
+-- Script to convert "hbtn_0c_0" database to UTF8
+-- Querry to select databse
+USE hbtn_0c_0;
+-- Querry to convert "hbtn_0c_0" database to UTF8
+ALTER DATABASE hbtn_0c_0 CHARACTER SET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Querry to convert "first_table" table to UTF8 
+ALTER TABLE first_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Querry to convert column "name" to UTF8
+ALTER TABLE first_table MODIFY name VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
