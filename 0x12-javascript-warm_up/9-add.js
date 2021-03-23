@@ -1,5 +1,6 @@
 #!/usr/bin/node
-function add(a, b) {
+const args = process.argv;
+function add (a, b) {
   a = parseInt(a);
   b = parseInt(b);
   if (a && b) {
@@ -7,5 +8,5 @@ function add(a, b) {
   } else {
     return NaN;
   }
-};
-console.log(add((process.argv[2]), process.argv[3]));
+}
+console.log(add((args[2]), args[3]));
