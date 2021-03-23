@@ -10,7 +10,7 @@ if (ary[1]) {
     if (num > second && num > max) {
       second = max;
       max = num;
-    } else if (num > second) {
+    } else if (num > second && num !== max) {
       second = num;
     }
   });
