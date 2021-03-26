@@ -7,7 +7,8 @@ if __name__ == "__main__":
         host="localhost", port=3306, user=sys.argv[1],
         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
     cur = conn.cursor()
-    cur.execute("SELECT id, name FROM cities \
+    cur.execute("SELECT c.id, c.name, s.name FROM cities AS c \
+                JOIN states AS s ON s.id = c.state_id \
                 ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
