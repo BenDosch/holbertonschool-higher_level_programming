@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""" Script that adds the State object “Louisiana”
+to the database hbtn_0e_6_usa. Takes 3 arguments:
+mysql username, mysql password and database name.
+"""
 
 import sys
 from model_state import Base, State
@@ -16,7 +20,7 @@ if __name__ == "__main__":
     session.add(Louisiana)
     session.commit()
     state = session.query(State).\
-                order_by(State.id.asc()).\
-                filter(State.name == 'Louisiana').first()
+        order_by(State.id.asc()).\
+        filter(State.name == 'Louisiana').first()
     print(state.id)
     session.close

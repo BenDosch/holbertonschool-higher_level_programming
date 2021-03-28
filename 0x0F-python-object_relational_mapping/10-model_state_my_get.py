@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""" Script that prints the State object with the name passed as an argument
+to the database hbtn_0e_6_usa. Takes 4 arguments: mysql username,
+mysql password, database name and name.
+"""
 
 import sys
 from model_state import Base, State
@@ -16,7 +20,7 @@ if __name__ == "__main__":
         State = session.query(State).\
                 order_by(State.id.asc()).\
                 filter(State.name == sys.argv[4]).first()
-        print("{}: {}".format(state.id, state.name))    
+        print("{}: {}".format(state.id, state.name))
     except:
         print("Not found")
     session.close
