@@ -20,6 +20,6 @@ if __name__ == "__main__":
     for city, state in session.query(City, State).\
             join(State).order_by(City.id.asc()):
         print("**")
-        print("{}: ({}) <{}>".format(state.name, city.id, city.name))
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.commit()
     session.close
