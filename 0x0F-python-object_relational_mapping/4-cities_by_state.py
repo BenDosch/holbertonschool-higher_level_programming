@@ -14,7 +14,7 @@ if __name__ == "__main__":
     cur = conn.cursor()
     cur.execute("SELECT c.id, c.name, s.name FROM cities AS c \
                 JOIN states AS s ON s.id = c.state_id \
-                ORDER BY id ASC")
+                ORDER BY c.id ASC")
     rows = cur.fetchall()
     for row in rows:
         print(row)
