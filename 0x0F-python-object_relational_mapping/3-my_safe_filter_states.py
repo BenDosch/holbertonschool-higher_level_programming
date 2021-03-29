@@ -8,7 +8,7 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    if !(sys.argv[4].fid("\'")) and !(sys.argv[4].find('\"')):
+    if sys.argv[4].find("\'") < 0 and sys.argv[4].find('\"') < 0:
         conn = MySQLdb.connect(
             host="localhost", port=3306, user=sys.argv[1],
             passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
