@@ -18,7 +18,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     for city, state in session.query(City, State).\
-            join(State).order_by(City.id.asc()):
+            filter(State.id, State.id == City.state_id).\
+            order_by(City.id.asc()):
         print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.commit()
     session.close
