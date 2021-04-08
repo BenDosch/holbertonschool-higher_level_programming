@@ -1,4 +1,4 @@
-#!/bin/bash
-# Comment
+#!/bin/bash                                                                                     
+# Script that                                                                                   
 
-Code goes here
+curl -sL "$1"
