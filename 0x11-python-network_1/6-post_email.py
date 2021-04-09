@@ -10,8 +10,6 @@ if __name__ == "__main__":
     if argv[1] is not None and argv[2] is not None:
         url = argv[1]
         email = argv[2]
-        url = argv[1]
-        email = argv[2]
         data = {'email': email}
         r = requests.post(url, data)
         body = r.text
