@@ -17,7 +17,7 @@ if __name__ == "__main__":
                      format(user, repo))
         params = {
             "per_page": 10,
-
+            "page": 1
         }
         r = requests.get(query_url, params=params)
         j = r.json()
