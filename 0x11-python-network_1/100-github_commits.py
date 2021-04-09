@@ -10,18 +10,17 @@ import requests
 
 
 if __name__ == "__main__":
-    if len(argv) > 2:
-        user = argv[1]
-        repo = argv[2]
-        query_url = "https://api.github.com/repos/{}/{}/commits".
-        format(user, repo)
-        params = {
-            "per_page": 10,
-            "page": 1
-        }
-        r = requests.get(query_url, params=params)
-        j = r.json()
-        for commit in j:
-            sha = commit.get("sha")
-            author_name = commit.get("commit").get("author").get("name")
-            print("{}: {}".format(sha, author_name))
+    user = argv[1]
+    repo = argv[2]
+    query_url = "https://api.github.com/repos/{}/{}/commits".
+    format(user, repo)
+    params = {
+        "per_page": 10,
+        "page": 1
+    }
+    r = requests.get(query_url, params=params)
+    j = r.json()
+    for commit in j:
+        sha = commit.get("sha")
+        author_name = commit.get("commit").get("author").get("name")
+        print("{}: {}".format(sha, author_name))
