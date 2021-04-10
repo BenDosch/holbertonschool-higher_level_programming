@@ -11,8 +11,8 @@ import requests
 
 if __name__ == "__main__":
     if len(argv) > 2:
-        user = argv[1]
-        repo = argv[2]
+        repo = argv[1]
+        user = argv[2]
         query_url = ("https://api.github.com/repos/{}/{}/commits".
                      format(user, repo))
         params = {
